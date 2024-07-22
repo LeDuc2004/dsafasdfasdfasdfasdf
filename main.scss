@@ -1,0 +1,374 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap");
+html {
+  font-family: "Noto Sans JP", sans-serif;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+$main_color_cb: #2ebacd;
+$main_color_cb1: #7fcccc;
+
+/*
+ * 最大幅
+ */
+$max_width: 1200px;
+
+/*
+ * レスポンシブサイズ
+ */
+$responsive_sp: 480px;
+$responsive_sp_side: 600px;
+$responsive_tablet: 960px;
+$responsive_pc: 1280;
+
+// メディアクエリ用変数
+$pc: 801px; // PC
+$sp: 800px; // スマホ
+
+@mixin pc {
+  @media (min-width: ($pc)) {
+    @content;
+  }
+}
+@mixin sp {
+  @media (max-width: ($sp)) {
+    @content;
+  }
+}
+
+// 段落の行数を制限する (limit lines)
+@mixin lm_lines($lines) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  word-break: break-all;
+}
+
+.clinic_book_card {
+  border-radius: 30px;
+  border: 1px solid #dfe3e6;
+  background: #fff;
+  overflow: hidden;
+  & a > img {
+    background-size: cover;
+    width: 100%;
+    aspect-ratio: 348 / 190;
+  }
+  .content_wrap {
+    padding: 10px 16px;
+    min-height: 217px;
+    .certification_cb {
+      display: flex;
+      align-items: center;
+      width: fit-content;
+      padding: 1px 10px 2px 10px;
+      gap: 5px;
+      border-radius: 5px;
+      margin-bottom: 5px;
+      background: linear-gradient(93deg, #5386ea -1.04%, #5ebbf0 99.81%);
+      .certification_txt {
+        color: var(--Foreground, #fff);
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+      }
+    }
+    .associations {
+      color: #332525;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 120%;
+      width: 100%;
+      max-width: -moz-fit-content;
+      max-width: fit-content;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .title {
+      color: #332525;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 140%;
+      @include lm_lines(2);
+    }
+    .related_info {
+      margin-top: 5px;
+      color: #332525;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 120%;
+      @include lm_lines(2);
+    }
+    .location {
+      display: flex;
+      align-items: center;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      gap: 5px;
+      color: #8a9393;
+      p {
+        color: #8a9393;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        width: 100%;
+        @include lm_lines(1);
+      }
+    }
+    .badges {
+      margin-bottom: 6px;
+      width: 100%;
+      max-width: -moz-fit-content;
+      max-width: fit-content;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      display: inline-block;
+      vertical-align: middle;
+      color: #2ebacd;
+      p {
+        display: inline-block;
+        height: max-content;
+        border-radius: 60px;
+        border: 1px solid $main_color_cb;
+        background: #fff;
+        padding: 1px 16px;
+        color: $main_color_cb;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+      }
+      p + p {
+        margin-left: 6px;
+      }
+    }
+  }
+}
+
+.clinic_book_detail {
+  display: flex;
+  max-width: 1190px;
+  gap: 30px;
+  padding-top: 40px;
+  padding-bottom: 20px;
+  margin: 0 auto;
+  .right_detail_cb {
+    padding: 0 40px;
+    padding-bottom: 20px;
+    max-width: 840px;
+
+    .preview_detail_cb {
+      .detail_img_cb {
+        width: 100%;
+        border-radius: 20px;
+        overflow: hidden;
+        margin-bottom: 30px;
+      }
+      .certification_cb {
+        display: flex;
+        align-items: center;
+        width: fit-content;
+        padding: 1px 10px 2px 10px;
+        gap: 5px;
+        border-radius: 5px;
+        margin-bottom: 5px;
+        background: linear-gradient(93deg, #5386ea -1.04%, #5ebbf0 99.81%);
+        .certification_txt {
+          color: var(--Foreground, #fff);
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+        }
+      }
+      .associations {
+        color: #332525;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 120%;
+        width: 100%;
+        max-width: -moz-fit-content;
+        max-width: fit-content;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        display: inline-block;
+        vertical-align: middle;
+      }
+      .title {
+        color: #332525;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 140%;
+        @include lm_lines(2);
+      }
+      .related_info {
+        margin-top: 5px;
+        color: #332525;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 120%;
+        @include lm_lines(2);
+      }
+      .location {
+        display: flex;
+        align-items: center;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        gap: 5px;
+        color: #8a9393;
+        p {
+          color: #8a9393;
+          font-size: 13px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+          width: 100%;
+          @include lm_lines(1);
+        }
+      }
+      .badges {
+        margin-bottom: 6px;
+        width: 100%;
+        max-width: -moz-fit-content;
+        max-width: fit-content;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        display: inline-block;
+        vertical-align: middle;
+        color: #2ebacd;
+        p {
+          display: inline-block;
+          height: max-content;
+          border-radius: 60px;
+          border: 1px solid $main_color_cb;
+          background: #fff;
+          padding: 1px 16px;
+          color: $main_color_cb;
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+        }
+        p + p {
+          margin-left: 6px;
+        }
+      }
+    }
+
+    .main_detail_cb {
+      padding: 20px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      h3 {
+        color: #332525;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        margin-bottom: 6px;
+      }
+      .clinic_features_cb {
+        p {
+          color: #332525;
+          font-family: "Noto Sans JP";
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+        }
+      }
+
+      .info_detail_cb {
+        dl.clinic_property_table {
+          > .row {
+            display: flex;
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-color: #aaaaaa;
+            padding: 16px 8px;
+            &.column_sp {
+              flex-direction: column;
+            }
+            dt {
+              color: #332525;
+              font-size: 16px;
+              font-style: normal;
+              font-weight: 700;
+              line-height: normal;
+              width: 90px;
+              @include lm_lines(1);
+              margin-right: 24px;
+            }
+
+            dd {
+              color: #332525;
+              font-size: 16px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: normal;
+              .clinic_cb_item_calender {
+                margin-top: 17px;
+                margin-bottom: 0;
+                min-width: 758px;
+                @include sp {
+                  min-width: auto;
+                }
+                td {
+                  p {
+                    font-size: 11px;
+                    margin: 0;
+                    line-height: none;
+                    letter-spacing: 0;
+                  }
+                }
+              }
+
+              .list_clinic_times {
+                li {
+                  p {
+                    font-size: 12px;
+                    margin: 0;
+                    line-height: normal;
+                  }
+                }
+              }
+
+              a,
+              #show_timeTable {
+                color: $main_color_cb;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .left_detail_cb {
+    max-width: 320px;
+    margin-left: auto;
+  }
+}
